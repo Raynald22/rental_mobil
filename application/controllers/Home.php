@@ -1,17 +1,15 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller
+class Home extends CI_Controller
 {
 
     public function index()
     {
-        $data['title'] = 'Selamat Datang,';
-        $data['users'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
-        $data['mobil'] = $this->model_mobil->tampil_data()->result();
-        $this->load->view('template/header');
-        $this->load->view('template/sidebar', $data);
-        $this->load->view('dashboard', $data);
-        $this->load->view('template/footer');
+
+        $this->load->view('templates/user_header');
+        $this->load->view('home');
+        $this->load->view('templates/user_footer');
     }
 
     public function tambah_ke_keranjang($id)
@@ -26,31 +24,31 @@ class Dashboard extends CI_Controller
         );
 
         $this->cart->insert($data);
-        redirect('dashboard');
+        redirect('user/keranjang');
     }
 
     public function detail_keranjang()
     {
         $data['users'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->view('template/header');
-        $this->load->view('template/sidebar', $data);
-        $this->load->view('keranjang');
-        $this->load->view('template/footer');
+        $this->load->view('templates/user_header');
+        $this->load->view('templates/user_sidebar', $data);
+        $this->load->view('user/keranjang');
+        $this->load->view('templates/user_footer');
     }
 
     public function hapus_keranjang()
     {
         $this->cart->destroy();
-        redirect('dashboard');
+        redirect('user/dashboard');
     }
 
     public function konfirmasi()
     {
         $data['users'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->view('template/header');
-        $this->load->view('template/sidebar', $data);
-        $this->load->view('konfirmasi');
-        $this->load->view('template/footer');
+        $this->load->view('templates/user_header');
+        $this->load->view('templates/user_sidebar', $data);
+        $this->load->view('user/konfirmasi');
+        $this->load->view('templates/user_footer');
     }
 
     public function proses_pesanan()
@@ -59,10 +57,10 @@ class Dashboard extends CI_Controller
         if ($is_processed) {
             $this->cart->destroy();
             $data['users'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
-            $this->load->view('template/header');
-            $this->load->view('template/sidebar', $data);
-            $this->load->view('proses_pesanan');
-            $this->load->view('template/footer');
+            $this->load->view('templates/user_header');
+            $this->load->view('templates/user_sidebar', $data);
+            $this->load->view('user/proses_pesanan');
+            $this->load->view('templates/user_footer');
         } else {
             echo "Maaf,Pesanan Anda Gagal Diproses";
         }
@@ -73,9 +71,9 @@ class Dashboard extends CI_Controller
 
         $data['mobil'] = $this->model_mobil->detail_mobil($id_mobil);
         $data['users'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->view('template/header');
-        $this->load->view('template/sidebar', $data);
-        $this->load->view('detail_mobil');
-        $this->load->view('template/footer');
+        $this->load->view('templates/user_header');
+        $this->load->view('templates/user_sidebar', $data);
+        $this->load->view('user/detail_mobil');
+        $this->load->view('templates/user_footer');
     }
 }

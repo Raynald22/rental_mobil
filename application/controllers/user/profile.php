@@ -2,6 +2,14 @@
 
 class Profile extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata('email')) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda Harus Login Terlebih Dahulu!</div>');
+            redirect('auth');
+        }
+    }
 
     public function index()
     {

@@ -100,6 +100,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="<?= base_url('user/profile') ?>">Edit Profile</a>
+                                        <a class="dropdown-item" href="<?= base_url('auth') ?>">Login</a>
                                         <a class="dropdown-item" href="<?= base_url('auth/logout') ?>">Logout</a>
                                     </div>
                                 </li>

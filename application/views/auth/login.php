@@ -11,7 +11,7 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Login Here</h1>
                         </div>
-
+                        <div class="flash-data" data-falshdata="<?= $this->session->flashdata('flash') ?>"></div>
                         <?= $this->session->flashdata('message'); ?>
 
                         <form class="user" method="post" action="<?= base_url('auth') ?>">
@@ -24,7 +24,7 @@
                                 <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                            <button type="submit" class="btn btn-primary btn-user btn-block" onclick="Swal('Password','Salah!','danger');">
                                 Login
                             </button>
 

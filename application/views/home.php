@@ -1,54 +1,60 @@
-<h2 style="margin-top: 0;">
-    <small>Selamat datang</small>
-    <br />
-    <?php echo $this->session->userdata('nama') ?>
-</h2>
-<hr />
+<div class="site-blocks-cover">
+    <div class="container">
 
-<div class="form-group">
-    <label>Role</label>
-    <br /><?php echo ucwords($this->session->userdata('role')) ?>
-</div>
+        <div class="row align-items-center justify-content-center">
 
-<?php
-// Cek role user
-if ($this->session->userdata('role') == 'admin') { // Jika role-nya admin
-    ?>
-    <div class="form-group">
-        <label>Hak Akses</label>
-        <br />
-        <ol style="margin-left: -25px;">
-            <li>
-                Akses menu home. Aksi yang diperbolehkan : Read
-            </li>
-            <li>
-                Akses menu berita. Aksi yang diperbolehkan : Create, Read, Update, Delete
-            </li>
-            <li>
-                Akses menu pengguna. Aksi yang diperbolehkan : Create, Read, Update, Delete
-            </li>
-            <li>
-                Akses menu Kontak. Aksi yang diperbolehkan : Read
-            </li>
-        </ol>
+            <div class="col-md-12" style="position: relative;" data-aos="fade-up">
+
+                <img src="<?php echo base_url() ?>assets/images/mobil.png" alt="Image" class="img-fluid img-absolute">
+
+
+                <div class="row align-items-center justify-content-center">
+                    <div class="row mb-4">
+                        <div class="col-lg-4 mr-auto">
+                            <h1>Sewa Mobil Murah dan Cepat</h1>
+                            <p class="mb-5"></p>
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="<?php echo base_url() ?>assets/images/141.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="<?php echo base_url() ?>assets/images/134.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="<?php echo base_url() ?>assets/images/138.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="<?php echo base_url() ?>assets/images/130.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="<?php echo base_url() ?>assets/images/132.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="<?php echo base_url() ?>assets/images/1291.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="<?php echo base_url() ?>assets/images/1311.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="<?= base_url('user/mobil') ?>" class="btn btn-primary mr-2 mb-2">Sewa Sekarang</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-<?php
-} else { // Jika role-nya operator
-    ?>
-    <div class="form-group">
-        <label>Hak Akses</label>
-        <br />
-        <ol style="margin-left: -25px;">
-            <li>
-                Akses menu home. Aksi yang diperbolehkan : Read
-            </li>
-            <li>
-                Akses menu berita. Aksi yang diperbolehkan : Read, Update, Delete
-            <li>
-                Akses menu Kontak. Aksi yang diperbolehkan : Read
-            </li>
-        </ol>
-    </div>
-<?php
-}
-?>
