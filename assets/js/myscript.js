@@ -1,9 +1,9 @@
-const flashData = $('flash-data').data('flashdata');
+const flashData = $('.flash-data').data('pesan');
 
 if (flashData) {
 	Swal({
-		title: 'Anda Harus Login untuk Masuk Ke Halaman Admin!' + flashData,
-		text: '' + flashData,
+		title: 'Data Berhasil' + flashData,
+		text: 'Ditambah' + flashData,
 		type: 'danger'
 	});
 }

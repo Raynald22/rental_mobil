@@ -9,6 +9,9 @@ class Model_invoice extends CI_Model
         $alamat = $this->input->post('alamat');
         $no_telp = $this->input->post('no_telp');
         $gambar = $this->input->post('gambar');
+        $tgl_pesan = $this->input->post('tgl_pesan');
+        $tgl_kembali = $this->input->post('tgl_kembali');
+        $tgl_pengembalian = $this->input->post('tgl_pengembalian');
 
         $order = array(
             'nama' => $nama,
@@ -16,7 +19,8 @@ class Model_invoice extends CI_Model
             'no_telp' => $no_telp,
             'gambar' => $gambar,
             'tgl_pesan' => date('Y-m-d H:i:s'),
-            'batas_bayar' => date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s'), date('m'), date('d') + 1, date('Y'))),
+            'tgl_kembali' => date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s'), date('m'), date('d') + 1, date('Y'))),
+            'tgl_pengembalian' => date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s'), date('m'), date('d') + 2, date('Y'))),
         );
         $this->db->insert('order', $order);
         $id_invoice = $this->db->insert_id();

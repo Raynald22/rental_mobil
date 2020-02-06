@@ -9,7 +9,8 @@
             <th>Alamat</th>
             <th>Bukti</th>
             <th>Tanggal Pinjam</th>
-            <th>Batas Kembali</th>
+            <th>Tanggal Kembali</th>
+            <th>Tanggal Pengembalian</th>
             <th>Aksi</th>
         </tr>
 
@@ -21,7 +22,8 @@
                 <td><?= $ord->alamat ?></td>
                 <td> <img src="<?php echo base_url() . 'assets/img/bukti/' . $ord->gambar  ?>">
                 <td><?= $ord->tgl_pesan ?></td>
-                <td><?= $ord->batas_bayar ?></td>
+                <td><?= $ord->tgl_kembali ?></td>
+                <td><?= $ord->tgl_pengembalian ?></td>
                 <td>
                     <div><?= anchor('admin/invoice/detail/' . $ord->id, '<div btn-sm btn-primary">Detail</div>') ?>
                 </td>

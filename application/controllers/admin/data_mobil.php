@@ -16,10 +16,11 @@ class Data_mobil extends CI_Controller
     {
         $nama       = $this->input->post('nama');
         $kategori   = $this->input->post('kategori');
-        $stok       = $this->input->post('stok');
+        $status       = $this->input->post('status');
         $harga      = $this->input->post('harga');
         $gambar  = $_FILES['gambar']['name'];
-        if ($gambar = '') { } else {
+        if ($gambar = '') {
+        } else {
             $config['upload_path'] = './assets/uploads';
             $config['allowed_types'] = 'jpg|jpeg|png|gif';
 
@@ -34,12 +35,13 @@ class Data_mobil extends CI_Controller
         $data = array(
             'nama'       => $nama,
             'kategori'   => $kategori,
-            'stok'       => $stok,
+            'status'       => $status,
             'harga'      => $harga,
             'gambar'     => $gambar
         );
 
         $this->model_mobil->tambah_mobil($data, 'mobil');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
         redirect('admin/data_mobil');
     }
 
@@ -59,13 +61,13 @@ class Data_mobil extends CI_Controller
         $id          = $this->input->post('id_mobil');
         $nama        = $this->input->post('nama');
         $kategori    = $this->input->post('kategori');
-        $stok        = $this->input->post('stok');
+        $status        = $this->input->post('status');
         $harga       = $this->input->post('harga');
         $gambar  = $this->input->post('gambar');
         $data = array(
             'nama'       => $nama,
             'kategori'   => $kategori,
-            'stok'       => $stok,
+            'status'       => $status,
             'harga'      => $harga,
             'gambar'     => $gambar
 
@@ -76,6 +78,7 @@ class Data_mobil extends CI_Controller
         );
 
         $this->model_mobil->update_data($where, $data, 'mobil');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
         redirect('admin/data_mobil/index');
     }
 
@@ -83,6 +86,7 @@ class Data_mobil extends CI_Controller
     {
         $where = array('id_mobil' => $id);
         $this->model_mobil->hapus_data($where, 'mobil');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect('admin/data_mobil');
     }
 

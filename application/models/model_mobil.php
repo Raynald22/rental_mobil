@@ -7,6 +7,10 @@ class Model_mobil extends CI_Model
         return $this->db->get('mobil');
     }
 
+    public function get_where($data)
+    {
+        return $this->db->get_where('users', $data);
+    }
     public function tambah_mobil($data, $table)
     {
         $this->db->insert($table, $data);

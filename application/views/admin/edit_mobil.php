@@ -16,14 +16,15 @@
                 <input type="text" name="kategori" class="form-control" value="<?php echo $mbl->kategori ?>">
             </div>
 
-            <div class="form-group">
-                <label>Stok</label>
-                <input type="text" name="stok" class="form-control" value="<?php echo $mbl->stok ?>">
-            </div>
 
             <div class="form-group">
                 <label>Harga</label>
                 <input type="text" name="harga" class="form-control" value="<?php echo $mbl->harga ?>">
+            </div>
+
+            <div class="form-group">
+                <label>Status</label>
+                <input type="text" name="status" class="form-control" value="<?php echo $mbl->status ?>">
             </div>
 
             <div class="form-group">
