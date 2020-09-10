@@ -1,6 +1,6 @@
 <?php
 
-class Model_mobil extends CI_Model
+class model_mobil extends CI_Model
 {
     public function tampil_data()
     {
